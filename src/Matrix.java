@@ -1,13 +1,17 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class Matrix {
 
-    double[][] matrix;
-    int rows;
-    int columns;
+    private final double[][] matrix;
+    private  int rows;
+    private int columns;
 
 
     Matrix(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+
         this.matrix = new double[rows][columns];
     }
 
@@ -15,32 +19,45 @@ public class Matrix {
         this.matrix = matrix;
     }
 
-    public double[][] fillMatrixWithRandomFromRange(double min, double max) {
-        return fillMatrix(min, max);
+    public void fillMatrixWithRandomFromRange(double min, double max) {
+        fillMatrix(min, max);
     }
 
-    public double[][] fillMatrixWithRandom() {
-        return fillMatrix(Double.MIN_VALUE, Double.MAX_VALUE);
+    public void fillMatrixWithRandom() {
+        fillMatrix(-1554900.101,1554900.101);
     }
 
-    public double[][] addMatrix(double[][] otherMatrix)
+    public void addMatrix(Matrix otherMatrix)
     {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                matrix[i][j] += otherMatrix[i][j];
+        if(!checkMatrixCompatibility(otherMatrix)) {
+            System.out.println("Matrices have to be same in size");
+        }
+        else {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    matrix[i][j] += otherMatrix.matrix[i][j];
+                }
             }
         }
-        return this.matrix;
     }
 
-    public double[][] multiplyMatrixByNumber(double number)
+    public void multiplyMatrixByNumber(double number)
     {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 this.matrix[i][j] *= number;
             }
         }
-        return this.matrix;
+    }
+
+    public double getRows()
+    {
+        return this.rows;
+    }
+
+    public double getColumns()
+    {
+        return this.columns;
     }
 
     public void printMatrix()
@@ -48,18 +65,24 @@ public class Matrix {
         for(int i = 0; i < this.rows; i++) {
             System.out.println(Arrays.toString(this.matrix[i]));
         }
+        System.out.println();
     }
 
-    private double[][] fillMatrix(double min, double max) {
+    private void fillMatrix(double min, double max) {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
-                matrix[i][j] = getRandomDouble(min, max);
+                this.matrix[i][j] = getRandomDouble(min, max);
             }
         }
-        return matrix;
     }
 
     private static double getRandomDouble(double min, double max) {
-        return ((Math.random() * (max - min)) + min);
+        Random random = new Random();
+        return ((random.nextDouble() * (max - min)) + min);
+    }
+
+    private  boolean checkMatrixCompatibility(Matrix otherMatrix)
+    {
+        return this.rows == otherMatrix.rows && this.columns == otherMatrix.columns;
     }
 }
