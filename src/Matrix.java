@@ -7,6 +7,13 @@ public class Matrix {
     private int rows;
     private int columns;
 
+    Matrix(Matrix other)
+    {
+        this.rows = other.rows;
+        this.columns = other.columns;
+        this.matrix = other.matrix;
+    }
+
 
     Matrix(int rows, int columns) {
         this.rows = rows;
