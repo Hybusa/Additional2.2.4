@@ -18,21 +18,18 @@ public class Main {
         matrix.fillMatrixWithRandom();*/
         double[][] matrix = new double[][] {{1,2,-1},{-2,0,1},{1,-1,0}};
         Matrix origMatrix = new Matrix(matrix);
-        Matrix newMatrix = new Matrix(matrix);
 
         origMatrix.printMatrix();
+        System.out.println(origMatrix.isMatrixInvertible());
+        origMatrix.printMatrix();
 
-        newMatrix.printMatrix();
-
+        /*newMatrix.printMatrix();
         System.out.println(newMatrix.findMatrixDeterminant());
-
         newMatrix.reverseMatrix();
-
         newMatrix.printMatrix();
-
         origMatrix.multiplyMatrixByMatrix(newMatrix);
         origMatrix.printMatrix();
-
+*/
 
 
 

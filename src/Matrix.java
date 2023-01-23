@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class Matrix {
 
+    private static final Matrix IDENTITY_MATRIX = new Matrix(new double[][]{{1,0,0},{0,1,0},{0,0,1}});
     private double[][] matrix;
     private int rows;
     private int columns;
@@ -54,6 +55,17 @@ public class Matrix {
                 this.matrix[i][j] *= number;
             }
         }
+    }
+
+    public boolean isMatrixInvertible()
+    {
+        Matrix compare = new Matrix(this);
+        compare.reverseMatrix();
+        compare.multiplyMatrixByMatrix(this);
+        compare.printMatrix();
+        IDENTITY_MATRIX.printMatrix();
+
+        return (compare.compareMatrices(IDENTITY_MATRIX));
     }
 
     public void multiplyMatrixByMatrix(Matrix otherMatrix) {
@@ -138,11 +150,11 @@ public class Matrix {
         this.columns = columns;
     }
 
-    public double getRows() {
+    public int getRows() {
         return this.rows;
     }
 
-    public double getColumns() {
+    public int getColumns() {
         return this.columns;
     }
 
@@ -189,5 +201,21 @@ public class Matrix {
 
     private boolean checkMatrixCompatibilityForAddition(Matrix otherMatrix) {
         return this.rows == otherMatrix.rows && this.columns == otherMatrix.columns;
+    }
+
+    private boolean compareMatrices(Matrix other)
+    {
+        if(this.rows != other.rows  || this.columns!= other.columns)
+            return false;
+        for(int i = 0; i < this.rows; i++)
+        {
+            for(int j=0; j < this.columns; j++)
+            {
+                if(this.matrix[i][j] != other.matrix[i][j])
+                    return false;
+            }
+
+        }
+        return true;
     }
 }
