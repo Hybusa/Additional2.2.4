@@ -6,7 +6,7 @@ public class Matrix {
     private static final Matrix IDENTITY_MATRIX = new Matrix(new double[][]{{1,0,0},{0,1,0},{0,0,1}});
     private double[][] matrix;
     private final int rows;
-    private final int columns;
+    private int columns;
 
     //Constructors
     Matrix(Matrix other)
@@ -83,6 +83,8 @@ public class Matrix {
                 }
             }
             this.matrix = newMatrix.matrix;
+            this.columns = otherMatrix.columns;
+
         }
     }
 
