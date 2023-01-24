@@ -5,9 +5,10 @@ public class Matrix {
 
     private static final Matrix IDENTITY_MATRIX = new Matrix(new double[][]{{1,0,0},{0,1,0},{0,0,1}});
     private double[][] matrix;
-    private int rows;
-    private int columns;
+    private final int rows;
+    private final int columns;
 
+    //Constructors
     Matrix(Matrix other)
     {
         this.rows = other.rows;
@@ -29,6 +30,7 @@ public class Matrix {
         this.matrix = matrix;
     }
 
+    //Public
     public void fillMatrixWithRandomFromRange(double min, double max) {
         fillMatrix(min, max);
     }
@@ -60,7 +62,7 @@ public class Matrix {
     public boolean isMatrixInvertible()
     {
         Matrix compare = new Matrix(this);
-        compare.reverseMatrix();
+        compare.inverseMatrix();
         compare.multiplyMatrixByMatrix(this);
         compare.printMatrix();
         IDENTITY_MATRIX.printMatrix();
@@ -70,7 +72,7 @@ public class Matrix {
 
     public void multiplyMatrixByMatrix(Matrix otherMatrix) {
         if (!checkMatrixCompatibilityForMultiplication(otherMatrix))
-            System.out.println("Matrices have to multiplicable");
+            System.out.println("Matrices have to be multiplicable");
         else {
             Matrix newMatrix = new Matrix(this.rows, otherMatrix.columns);
             for (int i = 0; i < this.columns; i++) {
@@ -127,7 +129,7 @@ public class Matrix {
         return -1;
     }
 
-    public void reverseMatrix() {
+    public void inverseMatrix() {
         int sign = 1;
         Matrix newMatrix = new Matrix(this.rows, this.columns);
         for (int i = 0; i < this.rows; i++) {
@@ -145,11 +147,6 @@ public class Matrix {
 
     }
 
-    public void setRowsAndColumns(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
-    }
-
     public int getRows() {
         return this.rows;
     }
@@ -165,13 +162,30 @@ public class Matrix {
         System.out.println();
     }
 
+    public boolean compareMatrices(Matrix other)
+    {
+        if(this.rows != other.rows  || this.columns!= other.columns)
+            return false;
+        for(int i = 0; i < this.rows; i++)
+        {
+            for(int j=0; j < this.columns; j++)
+            {
+                if(this.matrix[i][j] != other.matrix[i][j])
+                    return false;
+            }
 
-    public void flipMatrix() {
+        }
+        return true;
+    }
+
+    //Private
+
+    private void flipMatrix() {
 
         Matrix newMatrix = new Matrix(this.rows,this.columns);
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
-                    newMatrix.matrix[j][i] = this.matrix[i][j];
+                newMatrix.matrix[j][i] = this.matrix[i][j];
             }
         }
         this.matrix = newMatrix.matrix;
@@ -180,7 +194,6 @@ public class Matrix {
     private boolean checkMatrixIsSquare(Matrix matrix) {
         return (matrix.rows == matrix.columns);
     }
-
 
     private void fillMatrix(double min, double max) {
         for (int i = 0; i < this.rows; i++) {
@@ -201,21 +214,5 @@ public class Matrix {
 
     private boolean checkMatrixCompatibilityForAddition(Matrix otherMatrix) {
         return this.rows == otherMatrix.rows && this.columns == otherMatrix.columns;
-    }
-
-    private boolean compareMatrices(Matrix other)
-    {
-        if(this.rows != other.rows  || this.columns!= other.columns)
-            return false;
-        for(int i = 0; i < this.rows; i++)
-        {
-            for(int j=0; j < this.columns; j++)
-            {
-                if(this.matrix[i][j] != other.matrix[i][j])
-                    return false;
-            }
-
-        }
-        return true;
     }
 }

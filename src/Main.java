@@ -1,35 +1,38 @@
 public class Main {
     public static void main(String[] args) {
 
-      /*  Matrix matrix = new Matrix(5,7);
-        matrix.fillMatrixWithRandomFromRange(-10,10);
-        matrix.printMatrix();
-
-        Matrix matrix1 = new Matrix(5,7);
-        matrix1.fillMatrixWithRandomFromRange(-10,10);
-        matrix1.printMatrix();
-
-        matrix.addMatrix(matrix1);
-        matrix.printMatrix();
-
-        matrix.multiplyMatrixByNumber(4.8);
-        matrix.printMatrix();
-
-        matrix.fillMatrixWithRandom();*/
         double[][] matrix = new double[][] {{1,2,-1},{-2,0,1},{1,-1,0}};
         Matrix origMatrix = new Matrix(matrix);
 
         origMatrix.printMatrix();
         System.out.println(origMatrix.isMatrixInvertible());
+        System.out.println();
         origMatrix.printMatrix();
 
-        /*newMatrix.printMatrix();
-        System.out.println(newMatrix.findMatrixDeterminant());
-        newMatrix.reverseMatrix();
-        newMatrix.printMatrix();
-        origMatrix.multiplyMatrixByMatrix(newMatrix);
+        Matrix inversedMatrix = new Matrix(origMatrix);
+        inversedMatrix.inverseMatrix();
+        inversedMatrix.printMatrix();
+
+        origMatrix.multiplyMatrixByMatrix(inversedMatrix);
         origMatrix.printMatrix();
-*/
+
+        origMatrix.addMatrix(inversedMatrix);
+        origMatrix.printMatrix();
+        System.out.println(origMatrix.compareMatrices(inversedMatrix));
+
+        System.out.println(origMatrix.findMatrixDeterminant());
+
+        System.out.println(origMatrix.getRows());
+        System.out.println(origMatrix.getColumns());
+
+        origMatrix.fillMatrixWithRandomFromRange(-43.4,56);
+        origMatrix.printMatrix();
+
+        origMatrix.fillMatrixWithRandom();
+        origMatrix.printMatrix();
+
+
+
 
 
 

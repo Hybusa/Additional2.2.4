@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ec57a08-980e-4a8b-91e3-564484e20d81" name="Changes" comment="added copy Constructor">
+    <list default="true" id="8ec57a08-980e-4a8b-91e3-564484e20d81" name="Changes" comment="showing functionality. no warnings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrix.java" afterDir="false" />
@@ -33,19 +33,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "X:/Code/Java/Additional2.2.4",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;X:/Code/Java/Additional2.2.4&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +57,9 @@
       <workItem from="1674404066132" duration="1910000" />
       <workItem from="1674412578588" duration="3467000" />
       <workItem from="1674429039035" duration="84000" />
-      <workItem from="1674476365117" duration="18250000" />
+      <workItem from="1674476365117" duration="18785000" />
+      <workItem from="1674516251191" duration="128000" />
+      <workItem from="1674525405657" duration="737000" />
     </task>
     <task id="LOCAL-00001" summary="mid way">
       <created>1674405971382</created>
@@ -80,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674495394571</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added Matrix compare method">
+      <created>1674498093674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674498093674</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +100,8 @@
     <MESSAGE value="done." />
     <MESSAGE value="added matrix inversion and Determinant finding." />
     <MESSAGE value="added copy Constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="added copy Constructor" />
+    <MESSAGE value="added Matrix compare method" />
+    <MESSAGE value="showing functionality. no warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="showing functionality. no warnings" />
   </component>
 </project>
